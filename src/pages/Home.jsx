@@ -1,5 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import CartWrapper from "../components/cart/CartWrapper";
+import Products from "../components/products/Products";
 
 const Home = () => {
   return (
@@ -7,7 +8,9 @@ const Home = () => {
       <div className="flex-1">
         <CartWrapper />
       </div>
-      <div className="flex-1">{/* product component */}</div>
+      <div className="flex-1">
+        <Products />
+      </div>
       <Toaster position="top-right" />
     </div>
   );
