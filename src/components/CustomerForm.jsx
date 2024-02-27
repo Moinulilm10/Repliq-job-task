@@ -13,7 +13,7 @@ const CustomerForm = ({ onClose }) => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    // onClose();
+    onClose();
   };
 
   return (
