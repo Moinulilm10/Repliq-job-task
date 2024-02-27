@@ -27,7 +27,7 @@ const Provider = ({ children }) => {
         const { data } = await axios.get("https://dummyjson.com/products");
         setAllProducts(data.products);
         setProducts(data.products);
-        console.log(allProducts);
+        // console.log(allProducts);
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -43,7 +43,7 @@ const Provider = ({ children }) => {
         );
         setCategories(["All", ...data]);
         setSelectedCategory("All");
-        console.log(categories);
+        // console.log(categories);
       } catch (error) {
         console.error("Error fetching categories:", error);
       } finally {
