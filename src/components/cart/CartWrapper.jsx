@@ -1,11 +1,11 @@
 import CartNavbar from "./CartNavbar";
-import Customer from "./Customer";
+import CustomerHeading from "./CustomerHeading";
 
 const CartWrapper = () => {
   return (
     <>
       <CartNavbar />
-      <Customer />
+      <CustomerHeading />
     </>
   );
 };
