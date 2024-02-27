@@ -38,6 +38,9 @@ const CartNavbar = () => {
           <h1 className="p-5 text-4xl font-bold text-center text-sky-600">
             Repliq
           </h1>
+          <div className="flex flex-col p-2">
+            <h1>Dashboard</h1>
+          </div>
         </div>
       </Drawer>
     </div>
