@@ -8,6 +8,12 @@ const Home = () => {
       <div className="flex-1">
         <CartWrapper />
       </div>
+      <div
+        className="border"
+        style={{
+          height: "95vh",
+        }}
+      />
       <div className="flex-1">
         <Products />
       </div>
