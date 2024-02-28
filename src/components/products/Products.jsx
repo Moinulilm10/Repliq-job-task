@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { useProductContext } from "../../providers/Provider";
 import PaymentWrapper from "../Payment/PaymentWrapper";
 import Categories from "./Categories";
+import ProductLoader from "./ProductLoader";
 import SearchField from "./SearchField";
 import SideMenu from "./SideMenu";
 import SingleProduct from "./SingleProduct";
 
 const Products = () => {
-  const { products, categories, paymentScreen } = useProductContext();
+  const { products, categories, paymentScreen, isLoading } =
+    useProductContext();
 
   const [search, setSearch] = useState("");
   const [productData, setProductData] = useState(products);
@@ -33,6 +35,8 @@ const Products = () => {
 
   return paymentScreen ? (
     <PaymentWrapper />
+  ) : isLoading ? (
+    <ProductLoader />
   ) : (
     <>
       <SearchField setSearch={setSearch} />
