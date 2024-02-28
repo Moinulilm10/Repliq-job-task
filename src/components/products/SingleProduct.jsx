@@ -13,7 +13,7 @@ const SingleProduct = ({ product }) => {
 
   return (
     <Card
-      className="max-w-xs overflow-hidden rounded-md"
+      className="max-w-xs overflow-hidden rounded-md shadow-md"
       imgSrc={product.thumbnail}
       imgSize="md"
       imgAlt={product.id}
