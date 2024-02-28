@@ -55,6 +55,18 @@ const Provider = ({ children }) => {
     fetchCategories();
   }, []);
 
+  const filterProductsByCategory = (selectedCategory) => {
+    const category = selectedCategory.toLowerCase();
+
+    if (category === "all") {
+      setProducts(allProducts);
+    } else {
+      setProducts(
+        allProducts.filter((product) => product.category === category)
+      );
+    }
+  };
+
   return (
     <ShopContext.Provider
       value={{
@@ -67,6 +79,7 @@ const Provider = ({ children }) => {
         tax,
         discountOnCart,
         isLoading,
+        filterProductsByCategory,
       }}
     >
       {children}

@@ -7,6 +7,10 @@ const SingleProduct = ({ product }) => {
   const { discountOnCart } = useProductContext();
   //   console.log(product, typeof product.description);
 
+  const productAddToCart = () => {
+    console.log("product add to cart");
+  };
+
   return (
     <Card
       className="max-w-xs overflow-hidden rounded-md"
@@ -33,7 +37,7 @@ const SingleProduct = ({ product }) => {
           </Card.Description>
         </Card.Container>
         <Card.Container className="flex items-center justify-start gap-5">
-          <Button size="xs" type="outlineGray">
+          <Button onClick={productAddToCart} size="xs" type="outlineGray">
             <span className="pr-2">
               <MdShoppingCart size={24} />
             </span>
