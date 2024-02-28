@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const AddItemForm = ({ onClose }) => {
+const ShippingAddress = ({ onClose }) => {
   const [details, setDetails] = useState([
-    { product_name: "", quantity: "", color: "", size: "" },
+    { name: "", contact: "", city: "", country: "" },
   ]);
 
   const handleChange = (index, field, value) => {
@@ -22,32 +22,30 @@ const AddItemForm = ({ onClose }) => {
         <div key={index} className="flex flex-col gap-4 mb-4">
           <input
             type="text"
-            placeholder="Product"
-            value={detail.product_name}
-            onChange={(e) =>
-              handleChange(index, "product_name", e.target.value)
-            }
+            placeholder="Name"
+            value={detail.name}
+            onChange={(e) => handleChange(index, "name", e.target.value)}
             className="p-2 border rounded"
           />
           <input
-            type="number"
-            placeholder="Quantity"
+            type="tel"
+            placeholder="Contact Number"
             value={detail.quantity}
-            onChange={(e) => handleChange(index, "quantity", e.target.value)}
+            onChange={(e) => handleChange(index, "contact", e.target.value)}
             className="p-2 border rounded"
           />
           <input
             type="text"
-            placeholder="Color Variations"
-            value={detail.color}
-            onChange={(e) => handleChange(index, "color", e.target.value)}
+            placeholder="City"
+            value={detail.city}
+            onChange={(e) => handleChange(index, "city", e.target.value)}
             className="p-2 border rounded"
           />
           <input
             type="text"
-            placeholder="Size"
-            value={detail.size}
-            onChange={(e) => handleChange(index, "size", e.target.value)}
+            placeholder="Country"
+            value={detail.country}
+            onChange={(e) => handleChange(index, "country", e.target.value)}
             className="p-2 border rounded"
           />
         </div>
@@ -56,10 +54,10 @@ const AddItemForm = ({ onClose }) => {
         onClick={handleUpdate}
         className="w-full px-4 py-2 mt-10 text-white bg-green-500 rounded"
       >
-        Add Item
+        Submit
       </button>
     </div>
   );
 };
 
-export default AddItemForm;
+export default ShippingAddress;

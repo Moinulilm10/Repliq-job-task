@@ -35,9 +35,6 @@ const SingleProduct = ({ product }) => {
         </Card.Container>
         <Card.Container className="my-3">
           <Card.Title>{product.title}</Card.Title>
-          {/* <Card.Description>
-            {product.description.slice(0, 62)}
-          </Card.Description> */}
         </Card.Container>
         <Card.Container className="flex items-center justify-start gap-5">
           <Button onClick={productAddToCart} size="xs" type="outlineGray">
