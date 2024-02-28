@@ -16,6 +16,7 @@ const Provider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [paymentScreen, setPaymentScreen] = useState(false);
 
   const shippingCharge = 10;
   const tax = 15;
@@ -148,6 +149,8 @@ const Provider = ({ children }) => {
         decreaseQuantity,
         deleteCartItem,
         totalPrice,
+        paymentScreen,
+        setPaymentScreen,
       }}
     >
       {children}
