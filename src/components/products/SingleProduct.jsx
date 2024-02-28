@@ -16,7 +16,7 @@ const SingleProduct = ({ product }) => {
 
   return (
     <Card
-      className="max-w-xs overflow-hidden rounded-md shadow-md"
+      className="h-auto max-w-xs overflow-hidden rounded-md shadow-md"
       imgSrc={product.thumbnail}
       imgSize="md"
       imgAlt={product.id}
@@ -30,14 +30,14 @@ const SingleProduct = ({ product }) => {
             For Sale
           </Badge>
           <Card.Title>${product.price}</Card.Title>
-          <MdOutlineDiscount className="mr-[-3rem]" />
+          <MdOutlineDiscount className="mr-[-1rem]" />
           <Card.Title>{discountOnCart}</Card.Title>
         </Card.Container>
         <Card.Container className="my-3">
           <Card.Title>{product.title}</Card.Title>
-          <Card.Description>
+          {/* <Card.Description>
             {product.description.slice(0, 62)}
-          </Card.Description>
+          </Card.Description> */}
         </Card.Container>
         <Card.Container className="flex items-center justify-start gap-5">
           <Button onClick={productAddToCart} size="xs" type="outlineGray">

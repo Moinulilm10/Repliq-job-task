@@ -39,7 +39,7 @@ const CartNavbar = () => {
             Repliq
           </h1>
           <div className="flex flex-col p-2">
-            <h1>Dashboard</h1>
+            <h1 className="">Dashboard</h1>
           </div>
         </div>
       </Drawer>

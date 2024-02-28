@@ -43,7 +43,7 @@ const Products = () => {
 
       <Categories openDrawer={toggleDrawer} />
 
-      <div className="grid grid-cols-2 gap-5 mt-3 md:grid-cols-2">
+      <div className="grid grid-cols-2 gap-5 mt-3 md:grid-cols-3">
         {productData.length === 0 && (
           <div className="flex h-full flex-start">
             <h2 className="text-lg font-semibold text-gray-400">
