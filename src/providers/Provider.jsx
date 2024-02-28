@@ -14,6 +14,7 @@ const Provider = ({ children }) => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [cartItems, setCartItems] = useState([]);
 
   const shippingCharge = 10;
   const tax = 15;
@@ -67,6 +68,53 @@ const Provider = ({ children }) => {
     }
   };
 
+  // add product in cart
+  const addToCart = (product) => {
+    const existingItem = cartItems.find(
+      (item) => item.product.id === product.id
+    );
+    if (existingItem) {
+      setCartItems((prevItems) =>
+        prevItems.map((item) =>
+          item.product.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      setCartItems([
+        ...cartItems,
+        { id: cartItems.length + 1, product, quantity: 1 },
+      ]);
+    }
+  };
+
+  // product quantity increase
+  const increaseQuantity = (cartItemId) => {
+    const updatedItems = cartItems.map((item) =>
+      item.id === cartItemId ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setCartItems(updatedItems);
+  };
+
+  // product quantity decrease
+  const decreaseQuantity = (cartItemId) => {
+    const updatedItems = cartItems.map((item) =>
+      item.id === cartItemId
+        ? item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : { ...item, quantity: 1 }
+        : item
+    );
+    setCartItems(updatedItems);
+  };
+
+  // Handle cart item deletion
+  const deleteCartItem = (cartItemId) => {
+    const updatedItems = cartItems.filter((item) => item.id !== cartItemId);
+    setCartItems(updatedItems);
+  };
+
   return (
     <ShopContext.Provider
       value={{
@@ -80,6 +128,11 @@ const Provider = ({ children }) => {
         discountOnCart,
         isLoading,
         filterProductsByCategory,
+        addToCart,
+        cartItems,
+        increaseQuantity,
+        decreaseQuantity,
+        deleteCartItem,
       }}
     >
       {children}

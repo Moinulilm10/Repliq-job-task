@@ -1,14 +1,17 @@
 import { Badge, Button, Card } from "keep-react";
+import toast from "react-hot-toast";
 import { MdOutlineDiscount, MdShoppingCart } from "react-icons/md";
 import { PiHeart } from "react-icons/pi";
 import { useProductContext } from "../../providers/Provider";
 
 const SingleProduct = ({ product }) => {
-  const { discountOnCart } = useProductContext();
+  const { discountOnCart, addToCart } = useProductContext();
+
   //   console.log(product, typeof product.description);
 
   const productAddToCart = () => {
-    console.log("product add to cart");
+    addToCart(product);
+    toast.success("Product added to cart");
   };
 
   return (
