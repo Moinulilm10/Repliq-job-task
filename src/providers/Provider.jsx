@@ -15,6 +15,7 @@ const Provider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const shippingCharge = 10;
   const tax = 15;
@@ -115,6 +116,19 @@ const Provider = ({ children }) => {
     setCartItems(updatedItems);
   };
 
+  useEffect(() => {
+    let calculatedTotalPrice = 0;
+
+    if (cartItems.length > 0) {
+      calculatedTotalPrice = cartItems.reduce((acc, item) => {
+        const price = parseFloat(item.product.price);
+        return acc + price * item.quantity;
+      }, 0);
+    }
+
+    setTotalPrice(calculatedTotalPrice + tax + shippingCharge - discountOnCart);
+  }, [cartItems]);
+
   return (
     <ShopContext.Provider
       value={{
@@ -133,6 +147,7 @@ const Provider = ({ children }) => {
         increaseQuantity,
         decreaseQuantity,
         deleteCartItem,
+        totalPrice,
       }}
     >
       {children}

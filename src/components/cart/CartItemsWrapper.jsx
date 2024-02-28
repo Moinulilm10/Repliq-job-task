@@ -1,8 +1,9 @@
 import { useProductContext } from "../../providers/Provider";
 import CartProductItem from "./CartProductItem";
+import OrderCalculate from "./OrderCalculate";
 
 const CartItemsWrapper = () => {
-  const { cartItems } = useProductContext();
+  const { cartItems, totalPrice } = useProductContext();
 
   return (
     <>
@@ -11,6 +12,11 @@ const CartItemsWrapper = () => {
           <CartProductItem key={index} cartItem={cartItem} />
         ))}
       </div>
+      {cartItems.length !== 0 && (
+        <div className="mt-5">
+          <OrderCalculate />
+        </div>
+      )}
     </>
   );
 };
