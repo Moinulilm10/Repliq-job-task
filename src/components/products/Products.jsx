@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useProductContext } from "../../providers/Provider";
 import Categories from "./Categories";
 import SearchField from "./SearchField";
+import SideMenu from "./SideMenu";
 import SingleProduct from "./SingleProduct";
 
 const Products = () => {
-  const { products } = useProductContext();
+  const { products, categories } = useProductContext();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,7 +18,6 @@ const Products = () => {
     <>
       <SearchField />
 
-      {/* categories component */}
       <Categories openDrawer={toggleDrawer} />
 
       <div className="grid grid-cols-2 gap-5 mt-3 md:grid-cols-2">
@@ -26,7 +26,11 @@ const Products = () => {
         ))}
       </div>
 
-      {/* drawer component  */}
+      <SideMenu
+        toggleDrawer={toggleDrawer}
+        categories={categories}
+        isOpen={isOpen}
+      />
     </>
   );
 };
